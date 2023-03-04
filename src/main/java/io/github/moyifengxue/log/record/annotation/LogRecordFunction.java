@@ -12,6 +12,10 @@ import java.lang.annotation.*;
 @Documented
 public @interface LogRecordFunction {
 
+    /**
+     * 方法名称
+     * @return 名称
+     */
     String value() default "";
 
 }

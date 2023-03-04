@@ -54,6 +54,10 @@ public class CustomFunctionRegistrar implements ApplicationContextAware {
                 );
     }
 
+    /**
+     * 静态方法注册到上下文
+     * @param context 上下文
+     */
     public static void register(StandardEvaluationContext context) {
         functionMap.forEach(context::registerFunction);
     }

@@ -20,7 +20,6 @@ public interface IOperatorGetService {
      * 后续处理日志记录
      *
      * @param logRecordDTO 日志记录实体
-     * @return true/false
      */
     void insertLogRecord(LogRecordDTO logRecordDTO);
 
@@ -34,6 +33,7 @@ public interface IOperatorGetService {
 
     /**
      * 入参过滤
+     * @param args 方法参数列表
      *
      * @return 入参过滤
      */

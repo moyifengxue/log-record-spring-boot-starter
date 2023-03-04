@@ -10,8 +10,14 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
  */
 public class LogRecordContext {
 
+    /**
+     * 文件ID key
+     */
     public static final String CONTEXT_KEY_NAME_FILE_ID = "fileId";
-    public static final String CONTEXT_KEY_NAME_BATCH_ID = "batchId";
+    /**
+     * 业务ID key
+     */
+    public static final String CONTEXT_KEY_NAME_BIZ_ID = "bizId";
     private static final ThreadLocal<StandardEvaluationContext> CONTEXT_THREAD_LOCAL = new NamedThreadLocal<>("ThreadLocal StandardEvaluationContext");
 
     public static StandardEvaluationContext getContext() {

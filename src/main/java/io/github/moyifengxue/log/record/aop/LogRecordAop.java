@@ -49,6 +49,10 @@ public class LogRecordAop {
      */
     private final IOperatorGetService operatorGetService;
 
+    /**
+     * 构造方法
+     * @param operatorGetService 扩展接口
+     */
     public LogRecordAop(IOperatorGetService operatorGetService) {
         this.operatorGetService = operatorGetService;
     }
@@ -62,6 +66,13 @@ public class LogRecordAop {
     public void log(LogRecordAnnotation logRecordAnnotation) {
     }
 
+    /**
+     * 操作日志上下文
+     * @param pjp pjp
+     * @param logRecordAnnotation an
+     * @return 原方法返回值
+     * @throws Throwable 原方法异常
+     */
     @Around(value = "log(logRecordAnnotation)", argNames = "pjp,logRecordAnnotation")
     public Object aroundPrintLog(ProceedingJoinPoint pjp, LogRecordAnnotation logRecordAnnotation) throws Throwable {
         Object result = null;
@@ -118,7 +129,7 @@ public class LogRecordAop {
                 logRecord.setFileId(fileId);
 
                 // 上下文配置优先
-                bizId = String.valueOf(Optional.ofNullable(LogRecordContext.getVariable(LogRecordContext.CONTEXT_KEY_NAME_BATCH_ID)).orElse(bizId));
+                bizId = String.valueOf(Optional.ofNullable(LogRecordContext.getVariable(LogRecordContext.CONTEXT_KEY_NAME_BIZ_ID)).orElse(bizId));
                 logRecord.setBizId(bizId);
 
                 // 默认信息
